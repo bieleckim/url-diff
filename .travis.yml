@@ -16,6 +16,6 @@ script:
 
 deploy:
   provider: surge
-  project: ./build/
+  project: ./dist/
   domain: gentle-rat.surge.sh
   skip_cleanup: true
