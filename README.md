@@ -1,5 +1,7 @@
-# url-diff
 [![Build Status](https://travis-ci.org/bieleckim/url-diff.svg?branch=master)](https://travis-ci.org/bieleckim/url-diff)
+
+# url-diff
+
 Live: http://url-diff.surge.sh/
 
 ## Project setup
