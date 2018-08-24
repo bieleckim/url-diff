@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header class="text-center mt-2">
+      <h1 class="text-gray">Url Diff</h1>
+    </header>
+    <div class="divider"></div>
+    <div class="container">
+      <div class="columns">
+        <div class="column col-12">
+          <CompareForm/>
+        </div>
+      </div>
+    </div>
+    <footer class="text-gray">
+      <p>Designed and built with <span class="text-error">♥</span> by <a href="https://github.com/bieleckim" target="_blank">Marek Bielecki</a>. Licensed under the MIT License.</p>
+    </footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CompareForm from './components/CompareForm.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+      CompareForm
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  footer {
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
 </style>
