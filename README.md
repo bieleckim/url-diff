@@ -2,7 +2,7 @@
 
 # url-diff
 
-Live: http://url-diff.surge.sh/
+Live: https://url-diff.surge.sh/
 
 ## Project setup
 ```
