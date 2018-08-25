@@ -17,7 +17,7 @@
         name: "UrlInput",
         props: {
             label: String,
-            placeholder: Number,
+            placeholder: String,
             id: String
         }
     }
