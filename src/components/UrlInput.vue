@@ -1,5 +1,8 @@
 <template>
-    <div class="form-group">
+    <div
+            class="form-group"
+            :class="{ 'has-error': hasError() }"
+    >
         <label class="form-label" :for="id">{{ label }}</label>
         <input
                 class="form-input"
@@ -8,8 +11,12 @@
                 type="text"
                 :placeholder="placeholder"
                 required
-                :title="label"
-        >
+                :title="label">
+        <p
+                v-if="hasError()"
+                class="form-input-hint">
+            {{ errorMessage }}
+        </p>
     </div>
 </template>
 
@@ -20,7 +27,13 @@
             value: String,
             label: String,
             placeholder: String,
-            id: String
+            id: String,
+            errorMessage: String
+        },
+        methods: {
+            hasError: function () {
+                return this.errorMessage !== null;
+            }
         }
     }
 </script>
