@@ -14,7 +14,7 @@
                 :title="label">
         <p
                 v-if="hasError()"
-                class="form-input-hint">
+                class="form-input-hint mb-0">
             {{ errorMessage }}
         </p>
     </div>
