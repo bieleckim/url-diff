@@ -4,10 +4,18 @@
             <div class="container">
                 <div class="columns">
                     <div class="column col-6">
-                        <UrlInput label="First Url" id="first-url" placeholder="http://github.com?a=1"></UrlInput>
+                        <UrlInput
+                                :value="firstUrl"
+                                label="First Url"
+                                id="first-url"
+                                placeholder="http://github.com?a=1"/>
                     </div>
                     <div class="column col-6">
-                        <UrlInput label="Second Url" id="second-url" placeholder="http://github.com?a=2&b=1"></UrlInput>
+                        <UrlInput
+                                :value="secondUrl"
+                                label="Second Url"
+                                id="second-url"
+                                placeholder="http://github.com?a=2&b=1"/>
                     </div>
                     <div class="column col-12 mt-2">
                         <button type="submit" class="btn btn-primary btn-block">Compare</button>
@@ -25,6 +33,12 @@
         name: 'CompareForm',
         components: {
             UrlInput
+        },
+        data: () => {
+            return {
+                firstUrl: null,
+                secondUrl: null
+            };
         }
     }
 </script>
