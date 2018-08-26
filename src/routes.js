@@ -1,6 +1,6 @@
 
-import CompareForm from './components/CompareForm.vue'
-import Compare from './components/Compare.vue'
+import CompareForm from './views/CompareForm.vue'
+import Compare from './views/Compare.vue'
 
 export const routes = [
     {

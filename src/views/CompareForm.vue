@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import UrlInput from './UrlInput.vue';
+    import UrlInput from '../components/UrlInput.vue';
     import { INVALID_URL_MESSAGE } from './../messages';
 
     export default {
