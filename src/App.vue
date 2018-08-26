@@ -12,6 +12,7 @@
             </div>
         </div>
         <footer class="text-gray">
+            <div class="divider"></div>
             <p>
                 Designed and built with <span class="text-error">♥</span> by
                 <a href="https://github.com/bieleckim" target="_blank">Marek Bielecki</a>.
