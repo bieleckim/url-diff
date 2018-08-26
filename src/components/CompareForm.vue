@@ -6,21 +6,13 @@
         >
             <div class="container">
                 <div class="columns">
-                    <div class="column col-6">
+                    <div class="column col-6" v-for="(urlField, index) in urlFields" :key="index">
                         <UrlInput
-                                :value="firstUrl"
-                                :errorMessage="firstUrlErrorMessage"
-                                label="First Url"
-                                id="first-url"
-                                placeholder="http://github.com?a=1"/>
-                    </div>
-                    <div class="column col-6">
-                        <UrlInput
-                                :value="secondUrl"
-                                :errorMessage="secondUrlErrorMessage"
-                                label="Second Url"
-                                id="second-url"
-                                placeholder="http://github.com?a=2&b=1"/>
+                                :value.sync="urlField.value"
+                                :errorMessage="urlField.errorMessage"
+                                :label="urlField.label"
+                                :id="urlField.id"
+                                :placeholder="urlField.placeholder"/>
                     </div>
                     <div class="column col-12 mt-2">
                         <button type="submit" class="btn btn-primary btn-block">Compare</button>
@@ -40,25 +32,49 @@
         components: {
             UrlInput
         },
-        data: () => {
+        data() {
             return {
-                firstUrl: null,
-                secondUrl: null,
-                firstUrlErrorMessage: null,
-                secondUrlErrorMessage: null
+                urlFields: [
+                    {
+                        value: null,
+                        errorMessage: null,
+                        label: 'First Url',
+                        id: 'first-url',
+                        placeholder: 'http://github.com?a=2&b=1'
+                    },
+                    {
+                        value: null,
+                        errorMessage: null,
+                        label: 'Second Url',
+                        id: 'second-url',
+                        placeholder: 'http://github.com?a=1'
+                    },
+                ],
             };
         },
         methods: {
-            checkForm: function() {
-                if (!this.isValidUrl(this.firstUrl)) {
-                    this.firstUrlErrorMessage = INVALID_URL_MESSAGE;
+            checkForm() {
+                let isValid = true;
+
+                for (let index in this.urlFields) {
+                    let urlField = this.urlFields[index];
+
+                    if (!this.isValidUrl(urlField.value)) {
+                        urlField.errorMessage = INVALID_URL_MESSAGE;
+                        isValid = false;
+                        continue;
+                    }
+
+                    urlField.errorMessage = null;
                 }
 
-                if (!this.isValidUrl(this.secondUrl)) {
-                    this.secondUrlErrorMessage = INVALID_URL_MESSAGE;
+                if (isValid) {
+                    alert('move to compare view');
                 }
+
+                return false;
             },
-            isValidUrl: function (url) {
+            isValidUrl(url) {
                 try {
                     new URL(url);
                 } catch (error) {

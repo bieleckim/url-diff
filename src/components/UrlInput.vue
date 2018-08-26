@@ -6,7 +6,8 @@
         <label class="form-label" :for="id">{{ label }}</label>
         <input
                 class="form-input"
-                :value="value"
+                @change="onChange"
+                v-model="inputValue"
                 :id="id"
                 type="text"
                 :placeholder="placeholder"
@@ -30,9 +31,22 @@
             id: String,
             errorMessage: String
         },
+        data() {
+            return {
+                inputValue: this.value
+            }
+        },
+        watch: {
+            value (value) {
+                this.inputValue = value;
+            }
+        },
         methods: {
-            hasError: function () {
+            hasError() {
                 return this.errorMessage !== null;
+            },
+            onChange() {
+                this.$emit('update:value', this.inputValue)
             }
         }
     }
