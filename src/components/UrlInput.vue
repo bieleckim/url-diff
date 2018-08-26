@@ -51,3 +51,10 @@
         }
     }
 </script>
+
+<style scoped>
+    label {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+</style>
