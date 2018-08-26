@@ -40,14 +40,16 @@
                         errorMessage: null,
                         label: 'First Url',
                         id: 'first-url',
-                        placeholder: 'http://github.com?a=2&b=1'
+                        placeholder: 'http://github.com?a=2&b=1',
+                        url: null
                     },
                     {
                         value: null,
                         errorMessage: null,
                         label: 'Second Url',
                         id: 'second-url',
-                        placeholder: 'http://github.com?a=1'
+                        placeholder: 'http://github.com?a=1',
+                        url: null
                     },
                 ],
             };
@@ -59,7 +61,9 @@
                 for (let index in this.urlFields) {
                     let urlField = this.urlFields[index];
 
-                    if (!this.isValidUrl(urlField.value)) {
+                    try {
+                        urlField.url = new URL(urlField.value);
+                    } catch (error) {
                         urlField.errorMessage = INVALID_URL_MESSAGE;
                         isValid = false;
                         continue;
@@ -69,20 +73,14 @@
                 }
 
                 if (isValid) {
-                    alert('move to compare view');
+                    this.$router.push({ name: 'compare', params: {
+                        first: this.urlFields[0].value,
+                        second: this.urlFields[1].value
+                    }})
                 }
 
                 return false;
             },
-            isValidUrl(url) {
-                try {
-                    new URL(url);
-                } catch (error) {
-                    return false;
-                }
-
-                return true;
-            }
         }
     }
 </script>

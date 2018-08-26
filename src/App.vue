@@ -7,7 +7,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column col-12">
-                    <CompareForm/>
+                    <router-view></router-view>
                 </div>
             </div>
         </div>
@@ -22,13 +22,8 @@
 </template>
 
 <script>
-    import CompareForm from './components/CompareForm.vue'
-
     export default {
-        name: 'app',
-        components: {
-            CompareForm
-        }
+        name: 'app'
     }
 </script>
 
